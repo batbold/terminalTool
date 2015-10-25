@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/modelController.js"></script>
+	<title>Модел, контроллер</title>
+</head>
+<body>
+<h1>Модел, контроллер</h1>
+<a href="index.html">Home</a>
+<a href="mustache.html">Mustache</a>
+<a href="modelController.html">ModelController</a>
+<br/>
+<form>
+<br/>
+<br/>
+Нэр: <input type="text" name="colName" class="col-name" />
+<br/>
+<br/>
+Операц: <input type="text" name="operation" class="operation" />
+<br/>
+<br/>
+<textarea cols="50" rows="25" id="defaultController">
+define [
+  'underscore'
+  'backbone'
+  'root/screens/XACMM-A/models/ControllerName'
+], (_, Backbone, ControllerNameModel) ->
+
+  class ControllerNameCollection extends Backbone.Collection
+    model: ControllerNameModel
+    op:
+      read: operationList
+</textarea>
+<textarea cols="50" rows="25" id="defaultValue">
+define [
+  'underscore'
+  'backbone'
+], (_, Backbone) ->
+  'use strict';
+
+  class ModelNameModel extends Backbone.Model
+    pk: ["primaryKey"]
+    op:
+      create: operationCreate
+      update: operationUpdate
+      delete: operationDelete
+      read: operationRead
+</textarea>
+<textarea id="defaultValueOrig" style="visibility: hidden;">
+define [
+  'underscore'
+  'backbone'
+], (_, Backbone) ->
+  'use strict';
+
+  class ModelNameModel extends Backbone.Model
+    pk: ["primaryKey"]
+    op:
+      create: operationCreate
+      update: operationUpdate
+      delete: operationDelete
+      read: operationRead
+</textarea>
+<textarea id="defaultControllerOrig" style="visibility: hidden;">
+define [
+  'underscore'
+  'backbone'
+  'root/screens/XACMM-A/models/ControllerName'
+], (_, Backbone, ControllerNameModel) ->
+
+  class ControllerNameCollection extends Backbone.Collection
+    model: ControllerNameModel
+    op:
+      read: operationList
+</textarea>
+<br/>
+<input type="reset" value ="Болих" />
+<input type="button" onclick="generate()" value ="Generate" />
+</form>
+</body>
+</html>
